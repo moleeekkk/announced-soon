@@ -1,21 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
 <body>
-    <button onclick="downloadFile()">DOwnload</button>
+    <div class="container">
+        <h1>Happy Birthday</h1>
+        <div class="name">Maulik Dabhi</div>
+        <button class="btn" onclick="showSurprise()">Wish Birthday</button>
+    </div>
+
+    <!-- SURPRISE SPARKS -->
+    <div class="sparks" id="card">
+    </div>
 
     <script>
-        function downloadFile() {
-            const link = document.createElement('a');
-            link.href = 'myweb.jpg';
-            link.setAttribute('download', 'myImage.jpg');
 
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
     </script>
-
+    <script src="script.js"></script>
 </body>
 
 </html>
