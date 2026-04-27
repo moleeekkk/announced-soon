@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <button onclick="downloadFile()">DOwnload</button>
+
+    <script>
+        function downloadFile() {
+            const link = document.createElement('a');
+            link.href = 'myweb.jpg';
+            link.setAttribute('download', 'myImage.jpg');
+
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+
+</body>
+
+</html>
