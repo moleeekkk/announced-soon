@@ -9,19 +9,38 @@
 </head>
 
 <body>
+    <div id="preloader">
+
+        <!-- Floating particles -->
+        <div class="particles"></div>
+
+        <!-- Effects layers -->
+        <div class="sparkle-container"></div>
+        <div class="explosion-container"></div>
+
+        <!-- Main content -->
+        <div class="loader-content">
+            <h1 class="logo">MD</h1>
+
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <p class="loading-text">Loading...</p>
+        </div>
+    </div>
     <div class="container">
         <h1>Happy Birthday</h1>
         <div class="name">Maulik Dabhi</div>
-        <button class="btn" onclick="showSurprise()">Wish Birthday</button>
+        <button class="btn" onclick="showSurprise(), showToast()">Keep Forever</button>
+        <div id="toast">Thank You for Making My Day More Special</div>
     </div>
 
     <!-- SURPRISE SPARKS -->
     <div class="sparks" id="card">
     </div>
-
-    <script>
-
-    </script>
     <script src="script.js"></script>
 </body>
 

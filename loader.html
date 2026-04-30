@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+        }
+
+        /* Fullscreen */
+        #preloader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #111, #000);
+            overflow: hidden;
+            z-index: 9999;
+        }
+
+        /* Floating particles */
+        .particles::before,
+        .particles::after {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background-image: radial-gradient(gold 1.5px, transparent 1px);
+            background-size: 40px 40px;
+            animation: moveParticles 20s linear infinite;
+            opacity: 0.25;
+        }
+
+        .particles::after {
+            animation-duration: 30s;
+            opacity: 0.15;
+        }
+
+        @keyframes moveParticles {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-200px);
+            }
+        }
+
+        /* Sparkle trail */
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: gold;
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow: 0 0 8px gold, 0 0 15px #ffd700;
+            animation: sparkleFade 0.8s linear forwards;
+        }
+
+        @keyframes sparkleFade {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        /* 💥 Explosion particles */
+        .explosion {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: gold;
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow: 0 0 10px gold, 0 0 20px #ffd700;
+            animation: explode 0.8s ease-out forwards;
+        }
+
+        @keyframes explode {
+            to {
+                transform: translate(var(--x), var(--y)) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* Center content */
+        .loader-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        /* MD Logo */
+        .logo {
+            font-size: 70px;
+            letter-spacing: 5px;
+            color: #ffd700;
+            text-shadow:
+                0 0 10px rgba(255, 215, 0, 0.8),
+                0 0 25px rgba(255, 215, 0, 0.7),
+                0 0 50px rgba(212, 175, 55, 0.6);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px gold;
+            }
+
+            to {
+                text-shadow: 0 0 30px gold, 0 0 60px #ffd700;
+            }
+        }
+
+        /* Dots */
+        .dots span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin: 5px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #ffd700, #d4af37);
+            box-shadow: 0 0 10px gold;
+            animation: bounce 0.8s infinite alternate;
+        }
+
+        .dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-15px);
+            }
+        }
+
+        .loading-text {
+            color: #d4af37;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="preloader">
+
+        <!-- Floating particles -->
+        <div class="particles"></div>
+
+        <!-- Effects layers -->
+        <div class="sparkle-container"></div>
+        <div class="explosion-container"></div>
+
+        <!-- Main content -->
+        <div class="loader-content">
+            <h1 class="logo">MD</h1>
+
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <p class="loading-text">Loading...</p>
+        </div>
+    </div>
+</body>
+
+</html>
